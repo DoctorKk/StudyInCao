@@ -1,5 +1,5 @@
 # StudyInCao
-
+Backend文件夹内是后端代码，其它是前端代码
 
 ## TIPS
 1. 安装/更新到较新版本的的Node.js (10.16.0)
