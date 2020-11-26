@@ -1,37 +1,104 @@
-from flask import g
-from flask_httpauth import HTTPTokenAuth
 from itsdangerous import TimedJSONWebSignatureSerializer as Serializer
 
 SECRET_KEY = 'yuanhaoran0318'
 
-serializer = Serializer(SECRET_KEY, expires_in=600)
-login_auth = HTTPTokenAuth(scheme='Login')
-forgot_auth = HTTPTokenAuth(scheme='Forgot')
+login_serializer = Serializer(SECRET_KEY, expires_in=60000)  # 60000 sec
+modify_password_serializer = Serializer(SECRET_KEY, expires_in=600)  # 600 sec
 
 
-def create_token(data):
-    return serializer.dumps(data)
+def create_login_token(data):
+    return login_serializer.dumps(data)
 
 
-@login_auth.verify_token
-def verify_token(token):
-    g.user = None
+def create_modify_password_token(data):
+    return modify_password_serializer.dumps(data)
+
+
+def verify_login_token(parser):
+    parser.add_argument('Token', location='headers')
+    headers = parser.parse_args()
     try:
-        data = serializer.loads(token)
+        token = login_serializer.loads(headers['Token'])
     except:
         return False
-    if 'password' in data:
+    if 'status' in token and token['status'] == 'login':
         return True
     return False
 
 
-@forgot_auth.verify_token
-def verify_token(token):
-    g.user = None
+def verify_student_token(parser):
+    parser.add_argument('Token', location='headers')
+    headers = parser.parse_args()
     try:
-        data = serializer.loads(token)
+        token = login_serializer.loads(headers['Token'])
     except:
         return False
-    if 'card_id' in data:
+    if ('status' in token and token['status'] == 'login') and \
+       ('identity' in token and token['identity'] == 'student'):
+        return True
+    return False
+
+
+def verify_teacher_token(parser):
+    parser.add_argument('Token', location='headers')
+    headers = parser.parse_args()
+    try:
+        token = login_serializer.loads(headers['Token'])
+    except:
+        return False
+    if ('status' in token and token['status'] == 'login') and \
+       ('identity' in token and token['identity'] == 'teacher'):
+        return True
+    return False
+
+
+def verify_assistant_token(parser):
+    parser.add_argument('Token', location='headers')
+    headers = parser.parse_args()
+    try:
+        token = login_serializer.loads(headers['Token'])
+    except:
+        return False
+    if ('status' in token and token['status'] == 'login') and \
+       ('identity' in token and token['identity'] == 'assistant'):
+        return True
+    return False
+
+
+def verify_admin_token(parser):
+    parser.add_argument('Token', location='headers')
+    headers = parser.parse_args()
+    try:
+        token = login_serializer.loads(headers['Token'])
+    except:
+        return False
+    if ('status' in token and token['status'] == 'login') and \
+       ('identity' in token and token['identity'] == 'admin'):
+        return True
+    return False
+
+
+def verify_user_id_token(parser, user_id):
+    parser.add_argument('Token', location='headers')
+    headers = parser.parse_args()
+    try:
+        token = login_serializer.loads(headers['Token'])
+    except:
+        return False
+    if ('status' in token and token['status'] == 'login') and \
+       ('user_id' in token and token['user_id'] == user_id):
+        return True
+    return False
+
+
+def verify_modify_password_token(parser, user_id):
+    parser.add_argument('Token', location='headers')
+    headers = parser.parse_args()
+    try:
+        token = modify_password_serializer.loads(headers['Token'])
+    except:
+        return False
+    if ('status' in token and token['status'] == 'modify_password') and \
+       ('user_id' in token and token['user_id'] == user_id):
         return True
     return False
