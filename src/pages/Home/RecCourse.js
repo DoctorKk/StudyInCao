@@ -1,3 +1,4 @@
+// 只做效果预览用
 const recCourses = [
     {
         id: '1',          //课程编号

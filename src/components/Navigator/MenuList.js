@@ -1,84 +1,99 @@
+// 只做效果预览用
 const menuList = [
     {
         title:'首页',  //菜单标题名称
-        key:'/home', //对应的path
+        key:'/study', //对应的path
         icon:'HomeOutlined',//图标名称
     },
     {
         title:'课程',
-        key:'/allCourses',
+        key:'/study/allCourses',
         icon:'BookOutlined',
         children:[
             {
                 title:'全部课程',
+                id:'0',
                 icon:'',
-                key:'/allCourses',
+                key:'/study/allCourses/classificationid/all',
             },
             {
                 title:'哲学',
+                id:'1',
                 icon:'',
-                key:'',
+                key:'/study/allCourses/classificationid/哲学',
             },
             {
                 title:'经济学',
+                id:'2',
                 icon:'',
-                key:'',
+                key:'/study/allCourses/classificationid/经济学',
             },
             {
                 title:'法学',
+                id:'3',
                 icon:'',
-                key:'',
+                key:'/study/allCourses/classificationid/3',
             },
             {
                 title:'教育学',
+                id:'4',
                 icon:'',
-                key:'',
+                key:'/study/allCourses/classificationid/4',
             },
 
             {
                 title:'文学',
+                id:'5',
                 icon:'',
-                key:'',
+                key:'/study/allCourses/classificationid/5',
             },
             {
                 title:'历史学',
+                id:'6',
                 icon:'',
-                key:'',
+                key:'/study/allCourses/classificationid/6',
             },
             {
                 title:'理学',
+                id:'7',
                 icon:'',
-                key:'',
+                key:'/study/allCourses/classificationid/7',
             },
             {
                 title:'工学',
+                id:'8',
                 icon:'',
-                key:'',
+                key:'/study/allCourses/classificationid/8',
             },
             {
                 title:'农学',
+                id:'9',
                 icon:'',
-                key:'',
+                key:'/study/allCourses/classificationid/9',
             },
             {
                 title:'医学',
+                id:'10',
                 icon:'',
-                key:'',
+                key:'/study/allCourses/classificationid/10',
             },
             {
                 title:'军事学',
+                id:'11',
                 icon:'',
-                key:'',
+                key:'/study/allCourses/classificationid/11',
             },
             {
                 title:'管理学',
+                id:'12',
                 icon:'',
-                key:'',
+                key:'/study/allCourses/classificationid/12',
             },
             {
                 title:'艺术学',
+                id:'13',
                 icon:'',
-                key:'',
+                key:'/study/allCourses/classificationid/13',
             },
         ]
     },
@@ -94,7 +109,7 @@ const menuList = [
     },
     {
         title:'使用教程',  
-        key:'/help',
+        key:'/study/help',
         icon:'QuestionCircleOutlined',
     },
 ]

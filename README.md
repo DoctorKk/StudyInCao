@@ -1,5 +1,13 @@
 # StudyInCao
+## 路由说明
+加入路由后，打开网页一开始可能是空白的，需要手动补充路由  
+首页: http://localhost:3000/study   
+有关学生的页面:http://localhost:3000/student
 
+## 文件组织说明
+asserts：存放图片和css文件  
+components：基础组件，如导航栏，主要路由组件  
+pages：存放在首页的导航栏涉及的几个页面
 
 ## TIPS
 1. 安装/更新到较新版本的的Node.js (10.16.0)

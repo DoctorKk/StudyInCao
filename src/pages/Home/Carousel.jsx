@@ -19,7 +19,6 @@ const contentStyle = {
  * 2. （选）添加点击跳转网页
  */
 class Banner extends React.Component{
-
     render(){
         return(
             <Carousel autoplay>

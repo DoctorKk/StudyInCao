@@ -1,6 +1,6 @@
 import React from 'react';
 import {Card,Row,Col} from 'antd';
-import url from '../Image/logo.jpg'
+import url from '../asserts/logo.jpg'
 import './teachercss.css'
 const{Meta}=Card;
 

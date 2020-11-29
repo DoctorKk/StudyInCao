@@ -8,14 +8,12 @@ import  * as Icon from '@ant-design/icons';
 const { SubMenu } = Menu;
 
 /**
-* 导航栏
-* 选择项目可以切换页面
-* todo：路由跳转
+* 导航栏,点击切换页面
 */
 
 class TopMenu extends React.Component {
   state = {
-    current: "sourses",
+    current: "courses",
   };
 
   handleClick = e => {
@@ -29,8 +27,8 @@ class TopMenu extends React.Component {
     return menuList.map(item=>{
         if(!item.children){
             return(
-               <Menu.Item key ={item.key}>
-                    <Link to={item.key}>
+               <Menu.Item key ={item.key} id = {item.id}>
+                    <Link to={{ pathname: item.key, state: { id: item.title} }}>
                       {
                         React.createElement(
                           item.icon !=='' ? Icon[item.icon] : SmileOutlined
@@ -60,8 +58,6 @@ class TopMenu extends React.Component {
   }
 
   render() {
-    //const path = this.props.location.pathname;
-
     return (
       <div className="TopBar">
              <Menu onClick={this.handleClick} selectedKeys={[this.state.current]} mode="horizontal">
