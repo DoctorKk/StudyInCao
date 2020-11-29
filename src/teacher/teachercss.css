@@ -1,0 +1,21 @@
+.Teachers{
+    background-color: #5F9EA0;
+    height: 200px;
+    align-items: center;
+}
+.Img{
+    margin-top: 50px;
+}
+.Namefont{
+    font-weight: bold;
+}
+.teachermenu{
+    margin-left: 175px;
+    margin-right: 175px;
+    font-weight: bold;
+}
+.carddiv{
+    padding-top: 10px;
+    padding-left:175px;
+    padding-right: 175px;
+}

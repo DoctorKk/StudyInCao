@@ -4,18 +4,20 @@ import React, {Component} from 'react';
 import {BrowserRouter} from 'react-router-dom';
 
 //布局组件
-import TopBar from "./Navigator/TopBar.jsx";  //导航栏
-import Banner from "./Navigator/Carousel.jsx"; //走马灯
-import CourseCards from "./Navigator/CourseCards.jsx"; //课程卡片
+import TopBar from "./Navigator/TopBar.jsx";
+import Showthestudent from "./student/studentshow";
+import ShowthemenuStudent from "./student/studentmenu";
+import Showthecourse from "./teacher/teachercourse";
 
 class App extends Component {
 	render() {
 		return (
 			<div className="App" >
 				<BrowserRouter>
-                    <TopBar/>
-					<Banner/>
-					<CourseCards/>
+					<TopBar/>
+					<Showthestudent/>
+					<ShowthemenuStudent/>
+					<Showthecourse/>
 				</BrowserRouter>
 			</div>
 		);
