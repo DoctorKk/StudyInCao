@@ -1,37 +1,47 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-import { Card } from 'antd';
+import { List, Avatar} from 'antd';
+import Logo from '../../asserts/logo.jpg';
 import CourseList from './CourseList';
-import '../../asserts/css/Menu.css';
-const { Meta } = Card;
+import '../../asserts/css/Course.css';
 
 /**
  * todo:
- * 1. 课程封面更换
+ * 1. 根据类别显示不同课程
  * 2. 路由跳转
  */
 class ListCourse extends React.Component{
     getCardNodes = (Courses, classification) => {
         return Courses.map(item=>{
-				return(
-					<Card hoverable style={{ width: 200, marginBottom:15}}
-					 cover={<img alt={item.id} src={item.cover}/>}>
-					<Meta title={item.name} />
-					<Link to={item.key}></Link>
-					<p> 教师姓名 </p>
-					<p> 通识课 </p>
-					</Card>
-				)
        })
     }
 
-
     render(){
         return(
-            <div>
-                <div class = "recCourses">            
-                    {this.getCardNodes(CourseList, this.props.pageID)}
-                </div>
+            <div className="showCourse">
+            <List
+                itemLayout="vertical"
+                size="small"
+                pagination={{
+                onChange: page => {
+                    console.log(page);
+                },
+                pageSize: 5,
+                }}
+                dataSource={CourseList}
+                renderItem={item => (
+                <List.Item
+                    key={item.id}
+                >
+                <List.Item.Meta
+                avatar={<Avatar src={Logo} />}
+                title={<a href={item.key}>{item.name}</a>}
+                description={item.teacher +"\t" +item.general}
+                />
+                {item.description}
+                </List.Item>
+                )}
+            />
             </div>
         )
     }

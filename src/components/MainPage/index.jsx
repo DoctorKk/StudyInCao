@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import '../../asserts/css/Menu.css';
 
 //布局组件
 import MainContent from "../MainContent/index";//主题
@@ -11,7 +12,7 @@ class MainPage extends Component {
 	render() {
 		return (
 			<div>
-				<TopBar />
+				<TopBar/>
 				<MainContent/>
 			</div>
 		);

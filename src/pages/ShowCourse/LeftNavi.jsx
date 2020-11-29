@@ -3,6 +3,11 @@ import {Link} from 'react-router-dom';
 import { Menu } from 'antd';
 import menuList from './MenuList'
 
+/**
+ * todo:
+ * 1. 路由设置
+ */
+
 class LeftNavi extends React.Component {
     state = {
         current: this.props.pageID,

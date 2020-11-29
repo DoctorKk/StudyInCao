@@ -1,6 +1,5 @@
 import React from 'react';
 import {Button,Input} from 'antd';
-import {Link} from 'react-router-dom';
 import TopMenu from './TopMenu';
 import Logo from '../../asserts/logo.jpg';
 import '../../asserts/css/Menu.css';
