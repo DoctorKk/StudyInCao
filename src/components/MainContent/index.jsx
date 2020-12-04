@@ -3,7 +3,7 @@ import React from 'react'
 import HomePage from "../../pages/Home/index"
 import HelpPage from "../../pages/Help/index"
 import ShowCourse from "../../pages/ShowCourse/index"
-
+import Course from "../../pages/ShowCourse/Course"
 //引入路由
 import {Route, Switch,Redirect} from 'react-router-dom'
 
@@ -21,6 +21,7 @@ class MainContent extends React.Component {
                     <Route exact path='/study' component={HomePage}/>
 					<Route path='/study/allCourses/classificationid/:id' component={ShowCourse}/>
 					<Route exact path='/study/help' component={HelpPage}/>
+					<Route path='/study/allCourses/:id' component={Course}/>
 				</Switch>
 			</div>
 		)

@@ -13,7 +13,7 @@ import '../../asserts/css/Course.css';
 class ListCourse extends React.Component{
     getCardNodes = (Courses, classification) => {
         return Courses.map(item=>{
-       })
+       }) 
     }
 
     render(){
